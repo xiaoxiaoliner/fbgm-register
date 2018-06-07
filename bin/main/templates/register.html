@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>register</title>
+<script type="text/javascript" src="/jquery/1.6/jquery.js"></script>
+</head>
+</head>
+<body>
+
+	<div id="formsContent">
+	${message}
+		<form method="post" id="form" action="">
+			username:<input type="text" name='username'> 
+			password:<input type="password" name='passwd'>
+			<button type="submit">Submit</button>
+		</form>
+	
+		<script type="text/javascript">
+				$(document).ready(function() {
+					$("#form").submit(function() {  
+						$.post($(this).attr("action"), $(this).serialize(), function(html) {
+							
+							console.log(html)
+							$("#formsContent").replaceWith(html);
+							
+							//some page jump logic
+							
+							
+							
+							
+						});
+						return false;  
+					});			
+				});
+		</script>
+	</div>
+
+</body>
+</html>
